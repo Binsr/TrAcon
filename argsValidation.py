@@ -76,6 +76,9 @@ class ArgVal:
         if x == len(self.args):
             return 'error'
 
+    def getFileType(self):
+        return self.fileType
+
     def getSortedArgs(self):
         return self.sortedArgs
 
@@ -102,7 +105,7 @@ class ArgVal:
             return False
         posofDot= file.rfind('.')
         if file[posofDot+1:] == "properties":
-            self.fileType= 'properties'
+            self.fileType= 'property'
             return True
         elif file[posofDot+1:-1] == "txt":
             self.fileType= 'regular'

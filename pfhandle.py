@@ -27,7 +27,7 @@ class PFhandle:
             coder= codec.Codec()
             i = 0
             for line in self.tFile:
-
+                print("Line: " + str(i) + ' :processed')
                 i+=1
                 if re.search(r"^#.*", line) is not None:
                     self.oFile.write(line)  # Uklanja razmak izmedju 2 linije istog komentara

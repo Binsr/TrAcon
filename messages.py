@@ -42,19 +42,16 @@ class Messages:
     def versionMessage(self):
         print("\n    ~ ~ ~ TrAcon version: 1.2.0 ~ ~ ~\n")
 
-    def errorMessage(self,givenArg): #Za popravku
-        print("\ntranslator: \n\n " + givenArg + " is not TrAcon command. See help menu by using commands: \n\n"
-                                                     "  [-hc] for running with ./ "
-                                                     "\n  [-hp] for runnig with python\n\n")
-
+    def errorMessage(self):
+        print("\n\nError: \n"
+              "          Something went wrong :/\n\n")
     def examlpeMessage(self):
-
         print("\nHere is your example:  \n"
               " \n ./tracon TARFILE OUTFILE -t eng-fran \n"
               "\n ./tracon TARFILE utf8 OUTFILE utf16 -t eng-fran\n"
               "                                                          "
               "           you lazy AF today  ;) \n\n")
-
-
+    def success(self):
+        print("\n ~ ~ ~ Successfully completed ~ ~ ~\n")
 
 

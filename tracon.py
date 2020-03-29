@@ -17,30 +17,41 @@ def Main():
             outMsg.examlpeMessage()
             sys.exit(0)
         else:
-            outMsg.errorMessage('tmp')
+            outMsg.errorMessage()
             exit(1)
 
     if len(sys.argv) > 4:
         validator= av.ArgVal(sys.argv)
         if validator.validArgs() == "error":
-            outMsg.errorMessage("tmp") #EDITUJ OVE PORUKE
+            outMsg.errorMessage() #EDITUJ OVE PORUKE
             exit(1)
 
         sorArg= validator.getSortedArgs()
-        tFile= sorArg[0]
-        tEn= sorArg[1]
-        oFile= sorArg[2]
-        oEn= sorArg[3]
+
+        targetFile= sorArg[0]
+
+        targetEncoding= sorArg[1]
+
+        outFile= sorArg[2]
+
+        outEncoding= sorArg[3]
+
         option= sorArg[4]
-        optArg= sorArg[5]
-        print(str(sorArg[0]))
+
+        optionArg= sorArg[5]
+
         try:
-            with open(tFile,'r') as targetFile:
-                procesor= pf.PFhandle(targetFile,option,optArg)
-                procesor.processFile(oFile,tEn,oEn)
+            with open(targetFile,'r') as targetFile:
+                if validator.getFileType() is 'property':
+                    procesor= pf.PFhandle(targetFile,option,optionArg)
+                    procesor.processFile(outFile,targetEncoding,outEncoding)
+                else:
+                    print("Reg file funcionality coming soon")
+                    exit(0)
+            outMsg.success()
+            exit(0)
         except IOError:
-            print("IO?")
-            outMsg.errorMessage('tmp')
+            outMsg.errorMessage()
             exit(1)
 
 if __name__ == '__main__':
