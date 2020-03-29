@@ -22,9 +22,6 @@ class PFhandle:
             print("ProcessFile Failed")
             exit(1)
 
-
-
-
     def convertFile(self,en1,en2):
             con= convertor.Convertor(self.opArg)
             coder= codec.Codec()
