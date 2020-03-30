@@ -6,9 +6,9 @@ class Convertor:
     def __init__(self,optionArgument):
         self.opArg= optionArgument
 
-    def convLine(self,lines,isFirst):
+    def convLine(self,line,isFirst):
         if self.opArg == "latin-to-cir":
-            return self.tagSafeConLatCir(lines, isFirst)
+            return self.tagSafeConLatCir(line, isFirst)
         else:
             print("CONVERTOR FAILED")
             exit(1)

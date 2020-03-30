@@ -60,3 +60,20 @@ class Codec:
         else:
             print("LOS ENCODING") #ISTO ZA MENE SAMO
             exit(1)
+
+    def eliminatewhitespaces(self,string):
+        #eliminisi ih
+        whitespce= re.search(r"^\s*",string)
+        i=-1
+        if string[-1] == '\\':
+            i= -2
+        return string[whitespce.end():i]
+
+    def elimBackslash(self,string):
+        if len(string) < 2:
+            return string
+
+        if string[-1] is '\\':
+            return string[:-1]
+        else:
+            return string
