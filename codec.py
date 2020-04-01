@@ -4,34 +4,23 @@ class Codec:
     def __init__(self):
         pass
 
-    def isUnicode(self, chr):
+    def isUTFhex(self, chr):
         try:
             chr.encode().decode('unicode_escape')
         except:
             return False
         return True
 
+
     #DA HENDLUJE I NULL
 
     def decodeString(self,string,encoding=None):
-        if encoding == 'no':
+        if encoding is'no':
             return string
-        if encoding is None: #Default UTF16
-            decodedStr= ''
-            i= 0
-            while i < len(string):
-                if string[i] == '\\' and i+6 < len(string):
-                    if self.isUnicode(string[i:i+6]) and string[i] is not string[i+1]:
-                        decodedStr+= string[i:i+6].encode().decode('unicode_escape')
-                        i+= 6
-                        continue
-
-                decodedStr+= string[i]
-                i+=1
-            return decodedStr
-        else:
-            print("BAD ENCODING")
-            exit(1) #SAMO ZA MENE TREBA IZBACITI INACE
+        elif encoding is None: #Default UTF16
+            return self.decodeUTFhex(string)
+        if encoding is 'utf8':
+            return self.decodeUTFeight(string)
 
     def codeString(self,string,encoding= None):#DA LI JE UTF16 ili unicode escape
         if encoding == 'no':
@@ -60,6 +49,44 @@ class Codec:
         else:
             print("LOS ENCODING") #ISTO ZA MENE SAMO
             exit(1)
+
+    def decodeUTFhex(self,string):
+            decodedStr= ''
+            i= 0
+            while i < len(string):
+                if string[i] == '\\' and i+6 < len(string):
+                    if self.isUTFhex(string[i:i+6]) and string[i] is not string[i+1]:
+                        decodedStr+= string[i:i+6].encode().decode('unicode_escape')
+                        i+= 6
+                        continue
+
+                decodedStr+= string[i]
+                i+=1
+            return decodedStr
+
+    def codeTranslated(self,string,oEn):
+        if oEn == None:
+            return self.codeHexTran(string)
+        if oEn == 'no':
+            return string
+
+    def codeHexTran(self,string):
+
+        i = 0
+        outStr= ''
+        while i < len(string):
+            chr= str(string[i].encode('utf-8'))
+            if len(chr) == 4:
+                outStr+= chr[2]
+            else:
+                x= "".join(["\\u%s" % hex(ord(l))[2:].zfill(4) for l in string[i]])
+                outStr+= x
+            i+=1
+
+        return outStr
+
+
+
 
     def eliminatewhitespaces(self,string):
         #eliminisi ih

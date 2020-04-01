@@ -1,10 +1,13 @@
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/binsr/PycharmProjects/GoogleCloudKey_myServiceAccount.json"
+from google.cloud import translate_v2 as translate
 
-#Samo prevodi string PR: ENG -> FR **NEMA VEZE SA ENKODIRANJEM
 
 class Translator:
 
     def __init__(self,opArg):
         self.opArg= opArg
+        self.translate_client = translate.Client()
 
     def translateString(self,string):
         if self.opArg == 'eng-fran':
@@ -14,5 +17,7 @@ class Translator:
             exit(1)
 
     def engFran(self,string):
-        outStr= string
+        outStr= self.translate_client.translate(string,target_language='fr') #Google API vraca utf8 pa moramo da dekodiramo
+        outStr= outStr['translatedText']
         return outStr
+        # return outStr.encode().decode('utf-8')

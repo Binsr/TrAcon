@@ -3,6 +3,7 @@ import convertor
 import translator
 import re
 
+
 class PFhandle:
 
     def __init__(self,tFile,option,opArg):
@@ -62,6 +63,8 @@ class PFhandle:
             self.oFile.close()
 
     def translateFile(self,tEn,oEn):
+
+
         tran = translator.Translator(self.opArg)
         coder = codec.Codec()
         property= ''
@@ -79,9 +82,10 @@ class PFhandle:
                 decodedStr= coder.decodeString(forTrans,tEn)
 
                 translated= tran.translateString(decodedStr)
-                codedStr= coder.codeString(translated,oEn)
 
-                self.oFile.write(property+codedStr)
+                codedStr= coder.codeTranslated(translated,oEn)
+
+                self.oFile.write(property+" "+codedStr)
                 self.oFile.write('\n\n')
                 property= befEqStr
                 forTrans= aftEqStr
@@ -89,6 +93,18 @@ class PFhandle:
             else:
                 noSpaces= coder.eliminatewhitespaces(line)
                 forTrans+= coder.elimBackslash(noSpaces)
+
+        befEqStr = line[0:pos.end()]
+        aftEqStr = coder.elimBackslash(line[pos.end():-1])  # DO -1 zbog novih redova
+
+        decodedStr = coder.decodeString(forTrans, tEn)
+
+        translated = tran.translateString(decodedStr) #OVO DUPLIRANJE ODSTRANITI
+        codedStr = coder.codeTranslated(translated,oEn)
+        self.oFile.write(property+ " " +codedStr)
+
+
+
 
     def stringLoad(self):
         pass
