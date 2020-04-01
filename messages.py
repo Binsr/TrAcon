@@ -7,7 +7,7 @@ class Messages:
     def helpMessage(self):
 
         print("Help command: |-h|\n\n                        ~ This is TrAcon help menu ~\n\n"
-              "Use: \n\n"
+              "Use(1) for con/tran TARGET_FILE -> OUTPUT_FILE: \n\n"
               "-----------------------------------------------------------------------------"
               "\nTo run with C type: "
               " ./tracon TARGET_FILE {1} OUTPUT_FILE {2} [Option] [Option-Argument]  \n"
@@ -37,6 +37,17 @@ class Messages:
               "          {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
               "          {utf8} -- use if you want output file in UTF-8 encoding or your inptput file is UTF-8 encoded\n\n"
               "                        ***DEFAULT ENCODING FOR BOUTH TARGET AND OUT FILE IS from UTF-16 to UTF-16***\n")
+
+        print('\nUse(2) Updating all files for the TARGET_FILE changes:\n\n'
+              '-----------------------------------------------------------------------------'
+              '\nTo run with C type: ./tracon TARGET_FILE -u\n'
+              '-----------------------------------------------------------------------------'
+              '\nTo run with Python type: python3 tracon.py TARGET_FILE -u\n'
+              '-----------------------------------------------------------------------------\n'
+              '\nThis option only updates marked files in same directory.\n\n'
+              'Marked files are the files that are product of translating file with tracon.\n\n'
+              'The mark contains information about the parent of marked file\n\n')
+
         print("^ To get example use [-e] ^\n")
 
     def versionMessage(self):

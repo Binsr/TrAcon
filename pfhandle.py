@@ -99,7 +99,7 @@ class PFhandle:
 
         decodedStr = coder.decodeString(forTrans, tEn)
 
-        translated = tran.translateString(decodedStr) #OVO DUPLIRANJE ODSTRANITI
+        translated = tran.translateString(decodedStr) #OVO DUPLIRANJE ODSTRANITI FUNKCIJA MOZE BITI TRANSLATELINE()
         codedStr = coder.codeTranslated(translated,oEn)
         self.oFile.write(property+ " " +codedStr)
 
