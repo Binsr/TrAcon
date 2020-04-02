@@ -97,6 +97,9 @@ class Codec:
         return string[whitespce.end():i]
 
     def elimBackslash(self,string):
+        if string is None:
+            return None
+
         if len(string) < 2:
             return string
 
