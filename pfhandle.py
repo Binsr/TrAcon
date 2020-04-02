@@ -62,10 +62,19 @@ class PFhandle:
                     self.oFile.write(codedStri)
             self.oFile.close()
 
+    def translateLine(self,forTrans,tEn,oEn):
+
+        coder = codec.Codec()
+        tran = translator.Translator(self.opArg)
+
+        decodedStr = coder.decodeString(forTrans, tEn)
+        translated = tran.translateString(decodedStr)
+        codedStr = coder.codeTranslated(translated, oEn)
+
+        return codedStr
+
     def translateFile(self,tEn,oEn):
 
-
-        tran = translator.Translator(self.opArg)
         coder = codec.Codec()
         property= ''
         forTrans= ''
@@ -76,14 +85,11 @@ class PFhandle:
                 continue
             pos = re.search(r"[=]", line)
             if pos is not None:
+
                 befEqStr = line[0:pos.end()]
                 aftEqStr = coder.elimBackslash(line[pos.end():-1]) #DO -1 zbog novih redova
 
-                decodedStr= coder.decodeString(forTrans,tEn)
-
-                translated= tran.translateString(decodedStr)
-
-                codedStr= coder.codeTranslated(translated,oEn)
+                codedStr= self.translateLine(forTrans,tEn,oEn)
 
                 self.oFile.write(property+" "+codedStr)
                 self.oFile.write('\n\n')
@@ -94,16 +100,8 @@ class PFhandle:
                 noSpaces= coder.eliminatewhitespaces(line)
                 forTrans+= coder.elimBackslash(noSpaces)
 
-        befEqStr = line[0:pos.end()]
-        aftEqStr = coder.elimBackslash(line[pos.end():-1])  # DO -1 zbog novih redova
-
-        decodedStr = coder.decodeString(forTrans, tEn)
-
-        translated = tran.translateString(decodedStr) #OVO DUPLIRANJE ODSTRANITI FUNKCIJA MOZE BITI TRANSLATELINE()
-        codedStr = coder.codeTranslated(translated,oEn)
+        codedStr = self.translateLine(forTrans,tEn,oEn)
         self.oFile.write(property+ " " +codedStr)
-
-
 
 
     def stringLoad(self):

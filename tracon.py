@@ -23,7 +23,7 @@ def Main():
             exit(1)
 
     if len(sys.argv) == 3:
-        if sys.argv[2] == 'u':
+        if sys.argv[2] == '-u':
             update= updateHandle.UpdateHandle()
             exit(0)
 
