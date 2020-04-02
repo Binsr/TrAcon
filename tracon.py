@@ -1,7 +1,9 @@
 import sys
 import messages as m
 import pfhandle as pf
+import updateHandle
 import argsValidation as av
+
 
 def Main():
 
@@ -19,6 +21,11 @@ def Main():
         else:
             outMsg.errorMessage()
             exit(1)
+
+    if len(sys.argv) == 3:
+        if sys.argv[2] == 'u':
+            update= updateHandle.UpdateHandle()
+            exit(0)
 
     if len(sys.argv) > 4:
         validator= av.ArgVal(sys.argv)
