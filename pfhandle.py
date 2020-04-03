@@ -7,18 +7,25 @@ import pfReader
 class PFhandle:
 
     def __init__(self,tFile,option,opArg):
-        self.tFile= tFile
+        self.targFile= tFile
+        self.tFile= open(tFile,'r')
         self.option= option
         self.opArg= opArg
         self.oFile= None
         self.i = 0 #line counter
 
-    def countLine(self):
-        print("Line: " + str(self.i) + ' :processed')
+    def markFile(self,oFile):
+        oFile.write("#Translated from: " + self.targFile + " from: " + self.opArg)
+        oFile.write("\n\n")
+
+    def countTranslated(self):
+        print("Property: " + str(self.i) + ' :processed')
         self.i += 1
 
     def processFile(self,outFile,en1= None,en2= None): #tEn oEn promeni kad stignes u ove nazive en1 en2
         self.oFile= open(outFile,'w')
+
+        self.markFile(self.oFile)
 
         if self.option == '-c':
             self.convertFile(en1,en2)
@@ -73,7 +80,6 @@ class PFhandle:
 
     def translateFile(self,tEn,oEn):
 
-        i= 1
         reader= pfReader.pfReder(self.tFile)
         res= reader.readNext()
         while res:
@@ -91,7 +97,6 @@ class PFhandle:
                 codedStr= self.translateLine(forTrans,tEn,oEn)
                 self.oFile.write(property+" "+codedStr)
                 self.oFile.write('\n\n')
-                print("Property: " + str(i) + " -Translated")
-                i+=1
+                self.countTranslated()
 
             res= reader.readNext()
