@@ -22,10 +22,20 @@ def Main():
             outMsg.errorMessage()
             exit(1)
 
-    if len(sys.argv) == 3:
-        if sys.argv[2] == '-u':
+    if len(sys.argv) == 4:
+        if sys.argv[3] == '-u':
             update= updateHandle.UpdateHandle()
+
+            path= sys.argv[1]
+
+            targetFile= sys.argv[2]
+
+            update.updateDir(path,targetFile)
+
             exit(0)
+        else:
+            outMsg.errorMessage()
+            exit(1)
 
     if len(sys.argv) > 4:
         validator= av.ArgVal(sys.argv)

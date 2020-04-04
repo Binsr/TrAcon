@@ -3,20 +3,17 @@ import convertor
 import translator
 import re
 import pfReader
+import mark
 
 class PFhandle:
 
     def __init__(self,tFile,option,opArg):
         self.targFile= tFile
-        self.tFile= open(tFile,'r')
+        self.tFile= None
         self.option= option
         self.opArg= opArg
         self.oFile= None
         self.i = 0 #line counter
-
-    def markFile(self,oFile):
-        oFile.write("#Translated from: " + self.targFile + " from: " + self.opArg)
-        oFile.write("\n\n")
 
     def countTranslated(self):
         print("Property: " + str(self.i) + ' :processed')
@@ -24,12 +21,14 @@ class PFhandle:
 
     def processFile(self,outFile,en1= None,en2= None): #tEn oEn promeni kad stignes u ove nazive en1 en2
         self.oFile= open(outFile,'w')
+        self.tFile= open(self.targFile,'r')
 
-        self.markFile(self.oFile)
+        marker= mark.Mark()
 
         if self.option == '-c':
             self.convertFile(en1,en2)
         elif self.option == '-t':
+            marker.markFile(self.oFile, self.targFile,en1,en2,self.opArg)
             self.translateFile(en1,en2)
         else:
             print("ProcessFile Failed")

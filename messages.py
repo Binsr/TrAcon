@@ -38,11 +38,11 @@ class Messages:
               "          {utf8} -- use if you want output file in UTF-8 encoding or your inptput file is UTF-8 encoded\n\n"
               "                        ***DEFAULT ENCODING FOR BOUTH TARGET AND OUT FILE IS from UTF-16 to UTF-16***\n")
 
-        print('\nUse(2) Updating all files for the TARGET_FILE changes:\n\n'
+        print('\nUse(2) Updating all files in DIRECTORY for the TARGET_FILE changes:\n\n'
               '-----------------------------------------------------------------------------'
-              '\nTo run with C type: ./tracon TARGET_FILE -u\n'
+              '\nTo run with C type: ./tracon DIRECTORY_PATH TARGET_FILE -u\n'
               '-----------------------------------------------------------------------------'
-              '\nTo run with Python type: python3 tracon.py TARGET_FILE -u\n'
+              '\nTo run with Python type: python3 tracon.py DIRECTORY_PATH TARGET_FILE -u\n'
               '-----------------------------------------------------------------------------\n'
               '\nThis option only updates marked files in same directory.\n\n'
               'Marked files are the files that are product of translating file with tracon.\n\n'

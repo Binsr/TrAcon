@@ -11,7 +11,7 @@ class pfReder:
         coder= codec.Codec()
         output= {'type':None,'value':None}
 
-        forTrans= ''
+        forTrans= ' '
 
         line= self.file.readline()
         if line.isspace():
@@ -31,7 +31,7 @@ class pfReder:
             aftEqStr = coder.elimBackslash(line[pos.end():-1])  # DO -1 zbog novih redova
 
             output['type']= 'property'
-            output['value']= {'property':befEqStr,'string':None}
+            output['value']= {'property':befEqStr,'string': ' '}
 
             forTrans+= aftEqStr
 
