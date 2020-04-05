@@ -28,9 +28,18 @@ class UpdateHandle:
                 continue
             self.updateFile(path + '/' + filename)
 
-    def updateFile(self,filePath):
+    def updateFile(self,filePath): #Da postoji klasa fajl ? koja ima mark ima en ima sve sto treba da ima ? moze da ima cak i readline
 
-        handleP= pfhandle.PFhandle(None,None,'eng-fran') #Ovo mora da bude promenjivog tipa
+        parentEn= self.marks[1]
+        childEn= self.marks[2]
+        transArg= self.marks[3]
+
+        markF= mark.Mark()
+
+        parentEn= markF.decodeEn(self.marks[1])
+        childEn= markF.decodeEn(self.marks[2])
+
+        handleP= pfhandle.PFhandle(None,None,transArg) #Ovo mora da bude promenjivog tipa
 
         cFile= open(filePath,'r')
         pFile= open(self.parentFilePath,'r')
@@ -56,7 +65,7 @@ class UpdateHandle:
                         if pLine['type'] == 'property':
                             if pLine['value']['property'] == cLine['value']['property']:
                                 rFile.write(pLine['value']['property'] + " ")
-                                rFile.write(handleP.translateLine(pLine['value']['string'],'no','no')) #ISTO PROMENJIVOG TIPA
+                                rFile.write(handleP.translateLine(pLine['value']['string'],parentEn,childEn)) #ISTO PROMENJIVOG TIPA
                                 rFile.write("\n\n")
                                 break
         rFile.close()

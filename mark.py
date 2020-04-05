@@ -4,6 +4,7 @@ class Mark:
 
     def __init__(self):
         self.encodings= {None:'utf16','no':'no'}
+        self.decoded= {'utf16': None,'no':'no'}
 
     def markFile(self,mFile,parentPath,parentEncoding,childEncoding,translationArg):
         parentName= None
@@ -30,7 +31,8 @@ class Mark:
         values= re.findall(pattern, line)
         return values
 
-
+    def decodeEn(self,en):
+        return self.decoded[en]
 
 
 
