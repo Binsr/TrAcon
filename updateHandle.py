@@ -10,7 +10,6 @@ class UpdateHandle:
         self.parentFilePath= None
         self.marks= None
 
-
     def updateDir(self, path, parentFilePath):
         self.path= path
         self.parentFilePath= parentFilePath
