@@ -2,34 +2,39 @@ import codec
 import convertor
 import translator
 import re
-
+import pfReader
+import mark
 
 class PFhandle:
 
     def __init__(self,tFile,option,opArg):
-        self.tFile= tFile
+        self.targFile= tFile
+        self.tFile= None
         self.option= option
         self.opArg= opArg
         self.oFile= None
         self.i = 0 #line counter
 
-    def countLine(self):
-        print("Line: " + str(self.i) + ' :processed')
+    def countTranslated(self):
+        print("Property: " + str(self.i) + ' :processed')
         self.i += 1
-
 
     def processFile(self,outFile,en1= None,en2= None): #tEn oEn promeni kad stignes u ove nazive en1 en2
         self.oFile= open(outFile,'w')
+        self.tFile= open(self.targFile,'r')
+
+        marker= mark.Mark()
 
         if self.option == '-c':
             self.convertFile(en1,en2)
         elif self.option == '-t':
+            marker.markFile(self.oFile, self.targFile,en1,en2,self.opArg)
             self.translateFile(en1,en2)
         else:
             print("ProcessFile Failed")
             exit(1)
 
-    def convertFile(self,en1,en2):
+    def convertFile(self,en1,en2): #Napravi da bude modularno kao i translate
             con= convertor.Convertor(self.opArg)
             coder= codec.Codec()
             for line in self.tFile:
@@ -70,39 +75,27 @@ class PFhandle:
         decodedStr = coder.decodeString(forTrans, tEn)
         translated = tran.translateString(decodedStr)
         codedStr = coder.codeTranslated(translated, oEn)
-
         return codedStr
 
     def translateFile(self,tEn,oEn):
 
-        coder = codec.Codec()
-        property= ''
-        forTrans= ''
-        for line in self.tFile:
-            self.countLine()
-            if re.search(r"^#.*", line) is not None:
-                self.oFile.write(line)  # Uklanja razmak izmedju 2 linije istog komentara
-                continue
-            pos = re.search(r"[=]", line)
-            if pos is not None:
+        reader= pfReader.pfReder(self.tFile)
+        res= reader.readNext()
+        while res:
+            if res['type'] == 'empty':
+                self.oFile.write('\n')
 
-                befEqStr = line[0:pos.end()]
-                aftEqStr = coder.elimBackslash(line[pos.end():-1]) #DO -1 zbog novih redova
+            if res['type'] == 'comment':
+                self.oFile.write(res['value'])
+
+
+            if res['type'] == 'property':
+                property= res['value']['property']
+                forTrans= res['value']['string']
 
                 codedStr= self.translateLine(forTrans,tEn,oEn)
-
                 self.oFile.write(property+" "+codedStr)
                 self.oFile.write('\n\n')
-                property= befEqStr
-                forTrans= aftEqStr
+                self.countTranslated()
 
-            else:
-                noSpaces= coder.eliminatewhitespaces(line)
-                forTrans+= coder.elimBackslash(noSpaces)
-
-        codedStr = self.translateLine(forTrans,tEn,oEn)
-        self.oFile.write(property+ " " +codedStr)
-
-
-    def stringLoad(self):
-        pass
+            res= reader.readNext()

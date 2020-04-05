@@ -22,10 +22,20 @@ def Main():
             outMsg.errorMessage()
             exit(1)
 
-    if len(sys.argv) == 3:
-        if sys.argv[2] == '-u':
+    if len(sys.argv) == 4:
+        if sys.argv[3] == '-u':
             update= updateHandle.UpdateHandle()
+
+            path= sys.argv[1]
+
+            targetFile= sys.argv[2]
+
+            update.updateDir(path,targetFile)
+
             exit(0)
+        else:
+            outMsg.errorMessage()
+            exit(1)
 
     if len(sys.argv) > 4:
         validator= av.ArgVal(sys.argv)
@@ -47,19 +57,14 @@ def Main():
 
         optionArg= sorArg[5]
 
-        try:
-            with open(targetFile,'r') as targetFile:
-                if validator.getFileType() is 'property':
-                    procesor= pf.PFhandle(targetFile,option,optionArg)
-                    procesor.processFile(outFile,targetEncoding,outEncoding)
-                else:
-                    print("Reg file funcionality coming soon")
-                    exit(0)
-            outMsg.success()
+        if validator.getFileType() is 'property':
+                procesor= pf.PFhandle(targetFile,option,optionArg)
+                procesor.processFile(outFile,targetEncoding,outEncoding)
+        else:
+            print("Reg file funcionality coming soon")
             exit(0)
-        except IOError:
-            outMsg.errorMessage()
-            exit(1)
+        outMsg.success()
+
 
 if __name__ == '__main__':
     Main()

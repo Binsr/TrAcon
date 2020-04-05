@@ -12,6 +12,9 @@ class Translator:
     def translateString(self,string):
         if self.opArg == 'eng-fran':
             return self.engFran(string)
+
+        elif self.opArg == 'eng-ital':
+            return self.engItal(string)
         else:
             print("TranslateString Failed")
             exit(1)
@@ -20,4 +23,9 @@ class Translator:
         outStr= self.translate_client.translate(string,target_language='fr') #Google API vraca utf8 pa moramo da dekodiramo
         outStr= outStr['translatedText']
         return outStr
-        # return outStr.encode().decode('utf-8')
+
+    def engItal(self, string):
+        outStr = self.translate_client.translate(string, target_language='it')  # Google API vraca utf8 pa moramo da dekodiramo
+        outStr = outStr['translatedText']
+        return outStr
+
