@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bcf0306-efc2-43d9-8c9c-0e793dc2982f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out2.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/pfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/tmp.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/out1.properties" beforeDir="false" afterPath="$PROJECT_DIR$/test/out1.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/out2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/test/out2.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/updateHandle.py" beforeDir="false" afterPath="$PROJECT_DIR$/updateHandle.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/updateHandle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="646">
+              <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -29,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="19" />
+            <state relative-caret-position="640">
+              <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -62,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pfhandle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
+            <state relative-caret-position="544">
               <caret line="83" column="8" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -88,6 +90,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>rFile</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -299,17 +306,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="74" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mark.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
           <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="74" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -325,7 +332,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pfhandle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
+        <state relative-caret-position="544">
           <caret line="83" column="8" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -335,8 +342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="19" />
+        <state relative-caret-position="640">
+          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -345,8 +352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/updateHandle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="646">
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

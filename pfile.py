@@ -5,6 +5,8 @@ import mark
 class Pfile:
 
     def __init__(self,pathToDir,filename):
+        self.fullPath= pathToDir + '/' + filename
+
         self.pathToDir= pathToDir
         self.filename= filename
 
@@ -33,10 +35,33 @@ class Pfile:
         self.transArg= info[3]
 
     def readNext(self):
-        return self.reader.readNext()
+        line= self.reader.readNext()
+        if line is False:
+            self.file.close()
+        return line
 
     def getParentName(self):
         return self.parentName
 
     def getTransArg(self):
         return self.transArg
+
+    def getPathToDir(self):
+        return self.pathToDir
+
+    def getEn(self):
+        return self.encoding
+
+    def getParEn(self):
+        return self.parentEncoding
+
+    def getFullPath(self):
+        return self.fullPath
+
+    def getName(self):
+        return self.filename
+
+    def reload(self):
+        self.file.close()
+        self.file= open(self.fullPath,'r')
+        self.reader= pfReader.pfReder(self.file)
