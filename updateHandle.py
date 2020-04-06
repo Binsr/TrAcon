@@ -37,7 +37,6 @@ class UpdateHandle:
 
         return filesArr
 
-
     def updateFile(self,child,parent):
 
         edtranslator= pfhandle.PFhandle(None,None,child.getTransArg()) #pf handle for encoding/decoding translation
@@ -76,6 +75,7 @@ class UpdateHandle:
         tmpFile.close()
         os.remove(child.getFullPath())
         os.rename(tmpPath,child.getFullPath())
+        print(child.getFullPath() + " :Updated")
 
 
 
