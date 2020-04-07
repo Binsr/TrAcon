@@ -10,13 +10,13 @@ class Translator:
         self.translate_client = translate.Client()
 
     def translateString(self,string):
-        if self.opArg == 'eng-fran':
+        if self.opArg == 'fren':
             return self.engFran(string)
-        elif self.opArg == 'eng-ital':
+        elif self.opArg == 'ital':
             return self.engItal(string)
-        elif self.opArg == 'eng-srb':
+        elif self.opArg == 'srb':
             return self.engSrb(string)
-        elif self.opArg == 'eng-germ':
+        elif self.opArg == 'germ':
             return self.engGerman(string)
         else:
             print("TranslateString Failed")

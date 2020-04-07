@@ -28,10 +28,12 @@ class Messages:
               "             [latin-to-cir] -- use this argument to get converted file as outfile from Latin to Cirilic "
               "\n                              (example: ~$ ./tracon file1 file2 -c latin-to-cir )\n"
               "         -----------------------------------------------------------------------------")
-        print("          [-t] -- Translate-option used for translating from Lang1 to lang2\n"
+        print("          [-t] -- Translate-option used for translating target file to chosen langueage\n"
               "\n          translate [option-argument]: "
-              "\n\n             [eng-fran] -- use this argument to get translated file as output file from English to Franch\n"
-              "\n             [eng-ital] -- use this argument to get translated file as output file from English to Italian\n")
+              "\n\n             [fren] -- use this argument to get translated file as output file on French\n"
+              "\n             [ital] -- use this argument to get translated file as output file on Italian\n"
+              "\n             [srb] -- use this argument to get translated file as output file on Serbian\n"
+              "\n             [germ] -- use this argument to get translated file as output file on German")
         print("Encodings: \n"
               "           ------------------------------------------------------------------------------\n\n"
               "          {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
@@ -58,8 +60,8 @@ class Messages:
               "          Something went wrong :/\n\n")
     def examlpeMessage(self):
         print("\nHere is your example:  \n"
-              " \n ./tracon TARFILE OUTFILE -t eng-fran \n"
-              "\n ./tracon TARFILE utf8 OUTFILE utf16 -t eng-fran\n"
+              " \n ./tracon TARFILE OUTFILE -t fren \n"
+              "\n ./tracon TARFILE utf8 OUTFILE utf16 -t fren\n"
               "                                                          "
               "           you lazy AF today  ;) \n\n")
     def success(self):

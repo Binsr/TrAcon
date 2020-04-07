@@ -89,20 +89,18 @@ class ArgVal:
             else:
                 return False
         elif self.sortedArgs[-1] == '-t':
-            if arg == 'eng-fran':
+            if arg == 'fren':
                 return True
-            elif arg == 'eng-ital':
+            elif arg == 'ital':
                 return True
-            elif arg == 'eng-srb':
+            elif arg == 'srb':
                 return True
-            elif arg == 'eng-germ':
+            elif arg == 'germ':
                 return True
             else:
                 return False
         else:
             return False
-
-
 
     def isFile(self,file):
         if file.rfind('.') == '-1':

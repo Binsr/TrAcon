@@ -61,6 +61,7 @@ class UpdateHandle:
                 parentLine= parent.readNext()
 
             #OVDE DODATI USLOV za (edit) property
+            
 
             if not childLine['value']['string'].isspace():
                 tmpFile.write(childLine['value']['property'] + childLine['value']['string'])
