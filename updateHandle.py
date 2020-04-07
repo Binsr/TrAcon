@@ -3,13 +3,24 @@ import pfReader
 import pfhandle
 import mark
 import pfile
+import re
+import shutil
 
 class UpdateHandle:
 
     def __init__(self):
         pass
 
-    def updateDir(self, path, parentPath):
+    # def backUp(self,childs,path):
+    #     try:
+    #         os.mkdir(path + '/backup')
+    #     except FileExistsError:
+    #         shutil.rmtree(path+'/backup')
+    #         os.mkdir(path + '/backup')
+    #
+    #     # shutil.copy(src, dst, *, follow_symlinks=True)
+
+    def updateDir(self, path, parentPath, safe):
 
         startPos = parentPath.rfind('/') + 1
         parentName= parentPath[startPos:]
@@ -17,6 +28,9 @@ class UpdateHandle:
         parentFile= pfile.Pfile(path,parentName) #TREBA DA SE RESETUJE ITERATOR U PROP DA KRECE OD POCETKA!
 
         childs= self.generateChildsArr(path,parentName)
+
+        # if safe:
+        #     self.backUp(childs,path)
 
         for file in childs:
             parentFile.reload()
@@ -60,8 +74,9 @@ class UpdateHandle:
             while parentLine['type'] != 'property':
                 parentLine= parent.readNext()
 
-            #OVDE DODATI USLOV za (edit) property
-            
+            # #OVDE DODATI USLOV za (edit) property
+            # if re.search(r'\(editovano\)', parentLine['value']['string']) is not None:
+            #
 
             if not childLine['value']['string'].isspace():
                 tmpFile.write(childLine['value']['property'] + childLine['value']['string'])

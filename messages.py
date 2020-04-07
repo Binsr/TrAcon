@@ -31,7 +31,7 @@ class Messages:
               "             [latin-to-cir] -- use this argument to get converted file as outfile from Latin to Cirilic "
               "\n                              (example: ~$ ./tracon file1 file2 -c latin-to-cir )\n"
               "         -----------------------------------------------------------------------------")
-        print("          [-t] -- Translate-option used for translating target file to chosen langueage\n"
+        print("          [-t] -- Translate-option used for translating target file to chosen language\n"
               "\n          translate [option-argument]: \n"
               "\n             [fren] -- use this argument to get translated file as output file on French\n"
               "\n             [ital] -- use this argument to get translated file as output file on Italian\n"
@@ -41,7 +41,7 @@ class Messages:
         print("Encodings: "
               "          ------------------------------------------------------------------------------\n\n"
               "             {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
-              "             {utf8} -- use if you want output file in UTF-8 encoding or your inptput file is UTF-8 encoded\n\n"
+              "             {utf8} -- use if you want output file in UTF-8 encoding or your input file is UTF-8 encoded\n\n"
               "                        ***DEFAULT ENCODING FOR BOUTH TARGET AND OUT FILE IS from UTF-16 to UTF-16***\n")
 
         print('\nUse(2) Updating all files in DIRECTORY for the TARGET_FILE changes:\n\n'

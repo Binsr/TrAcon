@@ -28,8 +28,13 @@ def Main():
             path= sys.argv[1]
 
             targetFile= sys.argv[2]
-
-            update.updateDir(path,targetFile)
+            # print("\n Do you wanna safe updating? (y/n)\n")
+            # string = str(input())
+            # safe= False
+            # if string[0] == 'y':
+            #     safe= True
+            safe= False
+            update.updateDir(path,targetFile,safe)
 
             exit(0)
         else:
