@@ -9,35 +9,42 @@ class Translator:
         self.opArg= opArg
         self.translate_client = translate.Client()
 
-    def translateString(self,string):
+    def translateString(self,string): #OVO MOZE DA SE NAPRAVI DA BUDE LEPSE TIPA {fren:fr,germ:'de'}
         if self.opArg == 'fren':
-            return self.engFran(string)
+            return self.fren(string)
         elif self.opArg == 'ital':
-            return self.engItal(string)
+            return self.ital(string)
         elif self.opArg == 'srb':
-            return self.engSrb(string)
+            return self.srb(string)
         elif self.opArg == 'germ':
-            return self.engGerman(string)
+            return self.german(string)
+        elif self.opArg == 'span':
+            return self.spanish(string)
         else:
             print("TranslateString Failed")
             exit(1)
 
-    def engFran(self,string):
+    def fren(self,string):
         outStr= self.translate_client.translate(string,target_language='fr') #Google API vraca utf8 pa moramo da dekodiramo
         outStr= outStr['translatedText']
         return outStr
 
-    def engItal(self, string):
+    def ital(self, string):
         outStr = self.translate_client.translate(string, target_language='it')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
 
-    def engSrb(self, string):
+    def srb(self, string):
         outStr = self.translate_client.translate(string, target_language='sr')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
 
-    def engGerman(self, string):
+    def german(self, string):
         outStr = self.translate_client.translate(string, target_language='de')  # Google API vraca utf8 pa moramo da dekodiramo
+        outStr = outStr['translatedText']
+        return outStr
+
+    def spanish(self):
+        outStr = self.translate_client.translate(string, target_language='es')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr

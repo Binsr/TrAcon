@@ -6,7 +6,9 @@ class Messages:
 
     def helpMessage(self):
 
-        print("Help command: |-h|\n\n                        ~ This is TrAcon help menu ~\n\n"
+        print("Help command: |-h|\n\n"
+              "                        ~ This is TrAcon help menu ~\n\n"
+              ""
               "Use(1) for con/tran TARGET_FILE -> OUTPUT_FILE: \n\n"
               "-----------------------------------------------------------------------------"
               "\nTo run with C type: "
@@ -16,8 +18,9 @@ class Messages:
               " python3 tracon.py TARGET_FILE {} OUTPUT_FILE {} [Option] [Option-Argument]  "
               "\n-----------------------------------------------------------------------------\n"
               "\n {} Represents optional arguments: (To get clear picture of example use ./tracon -e)\n"
-              "   \n"
-              "\n {1} Is encoding of TARGET_FILE \n\n {2} is encoding of OUTPUT_FILE"
+              "\n"
+              "\n          {1} Is encoding of TARGET_FILE \n"
+              "\n          {2} is encoding of OUTPUT_FILE"
               "\n-----------------------------------------------------------------------------")
 
         # Options
@@ -29,15 +32,16 @@ class Messages:
               "\n                              (example: ~$ ./tracon file1 file2 -c latin-to-cir )\n"
               "         -----------------------------------------------------------------------------")
         print("          [-t] -- Translate-option used for translating target file to chosen langueage\n"
-              "\n          translate [option-argument]: "
-              "\n\n             [fren] -- use this argument to get translated file as output file on French\n"
+              "\n          translate [option-argument]: \n"
+              "\n             [fren] -- use this argument to get translated file as output file on French\n"
               "\n             [ital] -- use this argument to get translated file as output file on Italian\n"
               "\n             [srb] -- use this argument to get translated file as output file on Serbian\n"
-              "\n             [germ] -- use this argument to get translated file as output file on German")
-        print("Encodings: \n"
-              "           ------------------------------------------------------------------------------\n\n"
-              "          {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
-              "          {utf8} -- use if you want output file in UTF-8 encoding or your inptput file is UTF-8 encoded\n\n"
+              "\n             [germ] -- use this argument to get translated file as output file on German\n"
+              "\n             [spanish] -- use this argument to get translated file as output file on Spanish\n")
+        print("Encodings: "
+              "          ------------------------------------------------------------------------------\n\n"
+              "             {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
+              "             {utf8} -- use if you want output file in UTF-8 encoding or your inptput file is UTF-8 encoded\n\n"
               "                        ***DEFAULT ENCODING FOR BOUTH TARGET AND OUT FILE IS from UTF-16 to UTF-16***\n")
 
         print('\nUse(2) Updating all files in DIRECTORY for the TARGET_FILE changes:\n\n'

@@ -97,6 +97,8 @@ class ArgVal:
                 return True
             elif arg == 'germ':
                 return True
+            elif arg == 'span':
+                return True
             else:
                 return False
         else:
