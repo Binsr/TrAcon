@@ -1,7 +1,6 @@
 import pfReader
 import mark
 
-
 class Pfile:
 
     def __init__(self,pathToDir,filename):

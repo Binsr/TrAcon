@@ -93,6 +93,10 @@ class ArgVal:
                 return True
             elif arg == 'eng-ital':
                 return True
+            elif arg == 'eng-srb':
+                return True
+            elif arg == 'eng-germ':
+                return True
             else:
                 return False
         else:

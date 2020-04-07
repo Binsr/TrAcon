@@ -88,7 +88,6 @@ class PFhandle:
             if res['type'] == 'comment':
                 self.oFile.write(res['value'])
 
-
             if res['type'] == 'property':
                 property= res['value']['property']
                 forTrans= res['value']['string']
