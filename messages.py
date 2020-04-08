@@ -16,7 +16,7 @@ class Messages:
               " ./tracon TARGET_FILE {1} OUTPUT_FILE {2} [Option] [Option-Argument]  \n"
               "-----------------------------------------------------------------------------\n"
               "To run with Python type: "
-              " python3 tracon.py TARGET_FILE {} OUTPUT_FILE {} [Option] [Option-Argument]  "
+              " python3 tracon.py TARGET_FILE {1} OUTPUT_FILE {2} [Option] [Option-Argument]  "
               "\n-----------------------------------------------------------------------------\n"
               "\n {} Represents optional arguments: (To get clear picture of example use ./tracon -e)\n"
               "\n"
