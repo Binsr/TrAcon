@@ -12,7 +12,7 @@ class Pfile:
         self.parentName= None
         self.parentEncoding= None
         self.encoding= None
-        self.transArg= None #za izmenu da ne bude argument nego da bude
+        self.optionArg= None #za izmenu da ne bude argument nego da bude
 
         self.fileAction= None
 
@@ -38,7 +38,7 @@ class Pfile:
         else:
             self.fileAction= 'c'
 
-        self.transArg= info[4]
+        self.optionArg= info[4]
 
     def readNext(self):
         line= self.reader.readNext()
@@ -52,8 +52,8 @@ class Pfile:
     def getParentName(self):
         return self.parentName
 
-    def getTransArg(self):
-        return self.transArg
+    def getOptionArg(self):
+        return self.optionArg
 
     def getPathToDir(self):
         return self.pathToDir

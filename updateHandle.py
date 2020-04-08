@@ -34,10 +34,8 @@ class UpdateHandle:
 
         for file in childs:
             parentFile.reload()
-            if file.getFileAction() == 't':
-                self.updateTranslatedFile(file,parentFile)
-            else:
-                self.updateConvertedFile(file,parentFile) #OVDE DODAJ DA SE CEO FAJL KONVERTUJE
+            self.updateFile(file,parentFile) #ZA KONVERTOVANE SE MORA STAVITI DA JE PREVEDEN SA ENGL NA SRPSKI
+
 
     def generateChildsArr(self, path, parentName):
 
@@ -53,9 +51,9 @@ class UpdateHandle:
 
         return filesArr
 
-    def updateTranslatedFile(self,child,parent):
+    def updateFile(self,child,parent):
 
-        edtranslator= pfhandle.PFhandle(None,None,child.getTransArg()) #pf handle for encoding/decoding translation
+        edtranslator= pfhandle.PFhandle(None,None,'-t') #pf handle for encoding/decoding translation
         tmpPath= child.getPathToDir()+ '/' + 'tmp.properties'
         tmpFile= open(tmpPath,'w')
 
@@ -87,14 +85,14 @@ class UpdateHandle:
 
             str= parentLine['value']['string']
             translatedLine= edtranslator.translateLine(str,child.getEn(),child.getParEn())
+
+            #PROVERI DA LI JE NA LATINICI AKO JESTO ONDA CON CIR -> LAT
+
             tmpFile.write(parentLine['value']['property'] + translatedLine)
             tmpFile.write('\n\n')
 
         tmpFile.close()
         os.remove(child.getFullPath())
         os.rename(tmpPath,child.getFullPath())
-        print(child.getFullPath() + " :Updated")
-
-    def updateConvertedFile(self,child,parentfile):
-        pass
+        print(child.getFullPath() + " :Updated file")
 

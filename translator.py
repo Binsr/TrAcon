@@ -1,7 +1,7 @@
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/home/binsr/PycharmProjects/GoogleCloudKey_myServiceAccount.json"
 from google.cloud import translate_v2 as translate
-
+import transliterate as tr
 
 class Translator:
 
@@ -14,8 +14,10 @@ class Translator:
             return self.fren(string)
         elif self.opArg == 'ital':
             return self.ital(string)
-        elif self.opArg == 'srb':
-            return self.srb(string)
+        elif self.opArg == 'srbL':
+            return self.srbL(string)
+        elif self.opArg == 'srbC':
+            return self.srbC(string)
         elif self.opArg == 'germ':
             return self.german(string)
         elif self.opArg == 'span':
@@ -34,17 +36,23 @@ class Translator:
         outStr = outStr['translatedText']
         return outStr
 
-    def srb(self, string):
+    def srbC(self, string):
         outStr = self.translate_client.translate(string, target_language='sr')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
+    def srbL(self,string):
+        outStr = self.translate_client.translate(string, target_language='sr')  # Google API vraca utf8 pa moramo da dekodiramo
+        print(outStr)
+        outStr = outStr['translatedText']
+        lat = tr.translit(outStr,'sr',reversed=True)
+        return lat
 
     def german(self, string):
         outStr = self.translate_client.translate(string, target_language='de')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
 
-    def spanish(self):
+    def spanish(self,string):
         outStr = self.translate_client.translate(string, target_language='es')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
