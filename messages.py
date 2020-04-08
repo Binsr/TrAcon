@@ -10,6 +10,7 @@ class Messages:
               "                        ~ This is TrAcon help menu ~\n\n"
               ""
               "Use(1) for con/tran TARGET_FILE -> OUTPUT_FILE: \n\n"
+              "TARGET_FILE AND OUTPUT_FILE can be paths (./pat/TARGET_FILE)\n\n"
               "-----------------------------------------------------------------------------"
               "\nTo run with C type: "
               " ./tracon TARGET_FILE {1} OUTPUT_FILE {2} [Option] [Option-Argument]  \n"
@@ -35,9 +36,10 @@ class Messages:
               "\n          translate [option-argument]: \n"
               "\n             [fren] -- use this argument to get translated file as output file on French\n"
               "\n             [ital] -- use this argument to get translated file as output file on Italian\n"
-              "\n             [srb] -- use this argument to get translated file as output file on Serbian\n"
+              "\n             [srbL] -- use this argument to get translated file as output file on Serbian in latin\n"
+              "\n             [srbC] -- use this argument to get translated file as output file on Serbian in Cirilic\n"
               "\n             [germ] -- use this argument to get translated file as output file on German\n"
-              "\n             [spanish] -- use this argument to get translated file as output file on Spanish\n")
+              "\n             [span] -- use this argument to get translated file as output file on Spanish\n")
         print("Encodings: "
               "          ------------------------------------------------------------------------------\n\n"
               "             {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"

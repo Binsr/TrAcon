@@ -32,7 +32,7 @@ class pfReder:
 
             output['type']= 'property'
             output['value']= {'property':befEqStr,'string': ' '}
-
+            forTrans = ''
             forTrans+= aftEqStr
 
         while True:

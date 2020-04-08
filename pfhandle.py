@@ -94,7 +94,7 @@ class PFhandle:
                 forTrans= res['value']['string']
 
                 codedStr= self.translateLine(forTrans,tEn,oEn)
-                self.oFile.write(property+codedStr)
+                self.oFile.write(property+' '+ codedStr)
                 self.oFile.write('\n\n')
                 self.countTranslated()
 

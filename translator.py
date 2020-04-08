@@ -42,7 +42,6 @@ class Translator:
         return outStr
     def srbL(self,string):
         outStr = self.translate_client.translate(string, target_language='sr')  # Google API vraca utf8 pa moramo da dekodiramo
-        print(outStr)
         outStr = outStr['translatedText']
         lat = tr.translit(outStr,'sr',reversed=True)
         return lat

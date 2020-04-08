@@ -21,7 +21,6 @@ class UpdateHandle:
     #     # shutil.copy(src, dst, *, follow_symlinks=True)
 
     def updateDir(self, path, parentPath, safe):
-
         startPos = parentPath.rfind('/') + 1
         parentName= parentPath[startPos:]
 
@@ -53,7 +52,7 @@ class UpdateHandle:
 
     def updateFile(self,child,parent):
 
-        edtranslator= pfhandle.PFhandle(None,None,'-t') #pf handle for encoding/decoding translation
+        edtranslator= pfhandle.PFhandle(None,None,child.getOptionArg()) #pf handle for encoding/decoding translation
         tmpPath= child.getPathToDir()+ '/' + 'tmp.properties'
         tmpFile= open(tmpPath,'w')
 
@@ -88,11 +87,14 @@ class UpdateHandle:
 
             #PROVERI DA LI JE NA LATINICI AKO JESTO ONDA CON CIR -> LAT
 
-            tmpFile.write(parentLine['value']['property'] + translatedLine)
+            tmpFile.write(parentLine['value']['property'] +' '+translatedLine)
             tmpFile.write('\n\n')
 
         tmpFile.close()
         os.remove(child.getFullPath())
         os.rename(tmpPath,child.getFullPath())
         print(child.getFullPath() + " :Updated file")
-
+        try:
+            os.remove(tmpPath)
+        except:
+            return 
