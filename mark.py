@@ -6,7 +6,7 @@ class Mark:
         self.encodings= {None:'utf16','no':'no'}
         self.decoded= {'utf16': None,'no':'no'}
 
-    def markFile(self,mFile,parentPath,parentEncoding,childEncoding,translationArg):
+    def markFile(self,mFile,parentPath,parentEncoding,childEncoding,translationArg,actionPref):
         parentName= None
         posName= parentPath.rfind('/') + 1
         if posName != 0:
@@ -18,7 +18,7 @@ class Mark:
         mFile.write("#Parent:{" + parentName + '}  '
         'parent encoding:{' + self.encodings[parentEncoding] + '} '
         'child encoding:{' + self.encodings[childEncoding] + '}'
-        + ' Trnaslated from: ' + '{' + translationArg + '}')
+        + '{' + actionPref + '} from: ' + '{' + translationArg + '}')
         mFile.write("\n\n")
 
     def getInfo(self,filename):

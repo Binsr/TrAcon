@@ -26,9 +26,10 @@ class PFhandle:
         marker= mark.Mark()
 
         if self.option == '-c':
+            marker.markFile(self.oFile, self.targFile, en1, en2, self.opArg, 'Converted')
             self.convertFile(en1,en2)
         elif self.option == '-t':
-            marker.markFile(self.oFile, self.targFile,en1,en2,self.opArg)
+            marker.markFile(self.oFile, self.targFile,en1,en2,self.opArg,'Translated')
             self.translateFile(en1,en2)
         else:
             print("ProcessFile Failed")
@@ -93,7 +94,7 @@ class PFhandle:
                 forTrans= res['value']['string']
 
                 codedStr= self.translateLine(forTrans,tEn,oEn)
-                self.oFile.write(property+" "+codedStr)
+                self.oFile.write(property+codedStr)
                 self.oFile.write('\n\n')
                 self.countTranslated()
 

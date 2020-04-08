@@ -14,6 +14,8 @@ class Pfile:
         self.encoding= None
         self.transArg= None #za izmenu da ne bude argument nego da bude
 
+        self.fileAction= None
+
         self.setInfo(pathToDir + '/' + filename)
 
         self.file= open(pathToDir + '/' + filename,'r')
@@ -23,7 +25,7 @@ class Pfile:
     def setInfo(self,path):
         markH= mark.Mark()
         info = markH.getInfo(path)
-        if len(info) != 4:
+        if len(info) != 5:
             return
 
         info[1] = markH.decodeEn(info[1])
@@ -31,13 +33,21 @@ class Pfile:
         self.parentName= info[0]
         self.parentEncoding= info[1]
         self.encoding= info[2]
-        self.transArg= info[3]
+        if info[3] == 'Translated':
+            self.fileAction= 't'
+        else:
+            self.fileAction= 'c'
+
+        self.transArg= info[4]
 
     def readNext(self):
         line= self.reader.readNext()
         if line is False:
             self.file.close()
         return line
+
+    def getFileAction(self):
+        return self.fileAction
 
     def getParentName(self):
         return self.parentName

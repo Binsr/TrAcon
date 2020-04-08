@@ -34,8 +34,10 @@ class UpdateHandle:
 
         for file in childs:
             parentFile.reload()
-            self.updateFile(file,parentFile)
-
+            if file.getFileAction() == 't':
+                self.updateTranslatedFile(file,parentFile)
+            else:
+                self.updateConvertedFile(file,parentFile) #OVDE DODAJ DA SE CEO FAJL KONVERTUJE
 
     def generateChildsArr(self, path, parentName):
 
@@ -51,7 +53,7 @@ class UpdateHandle:
 
         return filesArr
 
-    def updateFile(self,child,parent):
+    def updateTranslatedFile(self,child,parent):
 
         edtranslator= pfhandle.PFhandle(None,None,child.getTransArg()) #pf handle for encoding/decoding translation
         tmpPath= child.getPathToDir()+ '/' + 'tmp.properties'
@@ -85,7 +87,7 @@ class UpdateHandle:
 
             str= parentLine['value']['string']
             translatedLine= edtranslator.translateLine(str,child.getEn(),child.getParEn())
-            tmpFile.write(parentLine['value']['property'] + " " + translatedLine)
+            tmpFile.write(parentLine['value']['property'] + translatedLine)
             tmpFile.write('\n\n')
 
         tmpFile.close()
@@ -93,5 +95,6 @@ class UpdateHandle:
         os.rename(tmpPath,child.getFullPath())
         print(child.getFullPath() + " :Updated")
 
-
+    def updateConvertedFile(self,child,parentfile):
+        pass
 
