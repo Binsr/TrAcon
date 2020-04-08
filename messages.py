@@ -40,7 +40,7 @@ class Messages:
               "\n             [srbC] -- use this argument to get translated file as output file on Serbian in Cirilic\n"
               "\n             [germ] -- use this argument to get translated file as output file on German\n"
               "\n             [span] -- use this argument to get translated file as output file on Spanish\n")
-        print("Encodings: "
+        print("Encodings: \n"
               "          ------------------------------------------------------------------------------\n\n"
               "             {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"
               "             {utf8} -- use if you want output file in UTF-8 encoding or your input file is UTF-8 encoded\n\n"

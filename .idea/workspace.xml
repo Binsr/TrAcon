@@ -3,21 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2bcf0306-efc2-43d9-8c9c-0e793dc2982f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/messages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pfReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/pfReader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pfhandle.py" beforeDir="false" afterPath="$PROJECT_DIR$/pfhandle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out1.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out10.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out2.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out3.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out4.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out5.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out6.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out7.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out8.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/out9.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/translator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/updateHandle.py" beforeDir="false" afterPath="$PROJECT_DIR$/updateHandle.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/messages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="597">
+              <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -117,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/argsValidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="1598">
               <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
             </state>
           </provider>
@@ -354,13 +339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/argsValidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -428,10 +406,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/argsValidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/messages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        <state relative-caret-position="597">
+          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
         </state>
       </provider>
     </entry>
