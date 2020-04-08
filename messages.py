@@ -69,7 +69,7 @@ class Messages:
               " \n ./tracon TARFILE OUTFILE -t fren \n"
               "\n ./tracon TARFILE utf8 OUTFILE utf16 -t fren\n"
               "                                                          "
-              "           you lazy AF today  ;) \n\n")
+              "\n\n")
     def success(self):
         print("\n ~ ~ ~ Successfully completed ~ ~ ~\n")
 
