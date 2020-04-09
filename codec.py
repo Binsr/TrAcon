@@ -74,10 +74,12 @@ class Codec:
 
         i = 0
         outStr= ''
+
         while i < len(string):
-            chr= str(string[i].encode('utf-8'))
-            if len(chr) == 4:
-                outStr+= chr[2]
+
+            chrt= str(string[i].encode('utf-8'))
+            if len(chrt) == 4:
+                outStr+= chrt[2]
             else:
                 x= "".join(["\\u%s" % hex(ord(l))[2:].zfill(4) for l in string[i]])
                 outStr+= x

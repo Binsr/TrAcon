@@ -96,6 +96,7 @@ class PFhandle:
                 codedStr= self.translateLine(forTrans,tEn,oEn)
                 self.oFile.write(property+' '+ codedStr)
                 self.oFile.write('\n\n')
+
                 self.countTranslated()
 
             res= reader.readNext()

@@ -15,10 +15,10 @@ class Mark:
         parentEn= self.encodings[parentEncoding]
         childEn= self.encodings[childEncoding]
 
-        mFile.write("#Parent:{" + parentName + '}  '
-        'parent encoding:{' + self.encodings[parentEncoding] + '} '
-        'child encoding:{' + self.encodings[childEncoding] + '}'
-        + '{' + actionPref + '} from: ' + '{' + translationArg + '}')
+        mFile.write("#Parent: {" + parentName + '}  '
+        'parent encoding: {' + self.encodings[parentEncoding] + '} '
+        'child encoding: {' + self.encodings[childEncoding] + '} Action preformed: '
+        + '{' + actionPref + '} Language: ' + '{' + translationArg + '}')
         mFile.write("\n\n")
 
     def getInfo(self,filename):
