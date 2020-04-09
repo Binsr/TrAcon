@@ -69,6 +69,5 @@ def Main():
             exit(0)
         outMsg.success()
 
-
 if __name__ == '__main__':
     Main()

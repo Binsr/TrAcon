@@ -70,10 +70,27 @@ class Codec:
         if oEn == 'no':
             return string
 
+    def handleHtmlEncodedChar(self,string): #resava problem kada Google vrati ' enkodiran u html formatu
+
+        while True:
+            pos = re.search(r"&#.{1,3};", string)
+            if pos is not None:
+                befStr = string[0:pos.start()]
+                value= int(string[pos.start()+2: pos.end()-1])
+                char= chr(value)
+                aftStr = string[pos.end():]
+
+                string= befStr + char + aftStr
+            else:
+                break
+        return string
+
     def codeHexTran(self,string):
 
         i = 0
         outStr= ''
+
+        string = self.handleHtmlEncodedChar(string)
 
         while i < len(string):
 
@@ -86,9 +103,6 @@ class Codec:
             i+=1
 
         return outStr
-
-
-
 
     def eliminatewhitespaces(self,string):
         #eliminisi ih

@@ -15,7 +15,7 @@ class Mark:
         parentEn= self.encodings[parentEncoding]
         childEn= self.encodings[childEncoding]
 
-        mFile.write("#Parent: {" + parentName + '}  '
+        mFile.write("#Parent: {" + parentName + '} '
         'parent encoding: {' + self.encodings[parentEncoding] + '} '
         'child encoding: {' + self.encodings[childEncoding] + '} Action preformed: '
         + '{' + actionPref + '} Language: ' + '{' + translationArg + '}')
