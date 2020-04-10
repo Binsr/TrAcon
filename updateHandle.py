@@ -38,8 +38,7 @@ class UpdateHandle:
 
     def generateChildsArr(self, path, parentName):
 
-        filesArr = []  # Niz fajlova ciji je parent prozledjeni parent
-
+        filesArr = []  
         for filename in os.listdir(path):
             if not filename.endswith(".properties") or filename == parentName:
                 continue
