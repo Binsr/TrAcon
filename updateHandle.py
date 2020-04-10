@@ -50,11 +50,13 @@ class UpdateHandle:
 
         return filesArr
 
+
     def updateFile(self,child,parent):
 
         edtranslator= pfhandle.PFhandle(None,None,child.getOptionArg()) #pf handle for encoding/decoding translation
         tmpPath= child.getPathToDir()+ '/' + 'tmp.properties'
         tmpFile= open(tmpPath,'w')
+        parentLine = parent.readNext()
 
         while True:
             childLine= child.readNext()
@@ -69,18 +71,18 @@ class UpdateHandle:
             if childLine['type'] != 'property':
                 continue
 
-            parentLine= parent.readNext() #OVA  IDEJA DA BI RADILA MORAJU ISTI REDOSLEDI PROPERTY DA BUDU U OBA FAJLA!
-            while parentLine['type'] != 'property':
-                parentLine= parent.readNext()
-
-            # #OVDE DODATI USLOV za (edit) property
-            # if re.search(r'\(editovano\)', parentLine['value']['string']) is not None:
-            #
 
             if not childLine['value']['string'].isspace():
                 tmpFile.write(childLine['value']['property'] + childLine['value']['string'])
                 tmpFile.write('\n\n')
                 continue
+
+            while True:
+                parentLine= parent.readNext()
+                if parentLine['type'] != 'property':
+                    continue
+                if parentLine['value']['property'] == childLine['value']['property']:
+                    break
 
             str= parentLine['value']['string']
             translatedLine= edtranslator.translateLine(str,child.getEn(),child.getParEn())
@@ -97,4 +99,4 @@ class UpdateHandle:
         try:
             os.remove(tmpPath)
         except:
-            return 
+            return
