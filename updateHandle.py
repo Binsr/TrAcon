@@ -38,7 +38,7 @@ class UpdateHandle:
 
     def generateChildsArr(self, path, parentName):
 
-        filesArr = []  
+        filesArr = []
         for filename in os.listdir(path):
             if not filename.endswith(".properties") or filename == parentName:
                 continue

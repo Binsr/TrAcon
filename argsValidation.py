@@ -101,6 +101,8 @@ class ArgVal:
                 return True
             elif arg == 'span':
                 return True
+            elif arg == 'rus':
+                return True
             else:
                 return False
         else:

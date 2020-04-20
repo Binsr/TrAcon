@@ -39,7 +39,8 @@ class Messages:
               "\n             [srbL] -- use this argument to get translated file as output file on Serbian in latin\n"
               "\n             [srbC] -- use this argument to get translated file as output file on Serbian in Cirilic\n"
               "\n             [germ] -- use this argument to get translated file as output file on German\n"
-              "\n             [span] -- use this argument to get translated file as output file on Spanish\n")
+              "\n             [span] -- use this argument to get translated file as output file on Spanish\n"
+              "\n             [rus] -- use this argument to get translated file as output file on Russian\n")
         print("Encodings: \n"
               "          ------------------------------------------------------------------------------\n\n"
               "             {no} -- use if you dont want outfile encoded or if your imput file is not encoded\n\n"

@@ -22,6 +22,8 @@ class Translator:
             return self.german(string)
         elif self.opArg == 'span':
             return self.spanish(string)
+        elif self.opArg == 'rus':
+            return self.russian(string)
         else:
             print("TranslateString Failed")
             exit(1)
@@ -54,5 +56,9 @@ class Translator:
 
     def spanish(self,string):
         outStr = self.translate_client.translate(string, target_language='es')  # Google API vraca utf8 pa moramo da dekodiramo
+        outStr = outStr['translatedText']
+        return outStr
+    def russian(self,string):
+        outStr = self.translate_client.translate(string, target_language='ru')  # Google API vraca utf8 pa moramo da dekodiramo
         outStr = outStr['translatedText']
         return outStr
