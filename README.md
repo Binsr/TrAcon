@@ -1,6 +1,7 @@
 # TrAcon
 File translator and convertor
-This is a tool used to translate Java property file formated in Jaspersoft and generate new file with translated properties.
+
+This is a tool used to translate Java property file formated in Jaspersoft and generate new file with translated properties using Google translate API.
 Example:
  javaFile.properties:
   someKey= "Ovo je test string"
